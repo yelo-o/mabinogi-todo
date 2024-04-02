@@ -1,0 +1,7 @@
+.addBtn {
+    float: right;
+}
+
+.todoTableRow > th, .todoTableRow > td{
+    text-align: center;
+}

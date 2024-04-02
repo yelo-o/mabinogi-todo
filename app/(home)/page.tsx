@@ -1,6 +1,9 @@
 import 'normalize.css'
 import 'concrete.css'
-import DailyCalendar from "../../components/daily-calendar";
+import styles from "../../styles/home.module.css";
+import WeeklyTodo from "../../components/weekly-todo";
+import Clock from "../../components/clock";
+import Image from 'next/image';
 export const metadata = {
     title:"Home",
 }
@@ -9,8 +12,17 @@ export const metadata = {
 export default async function HomePage() {
     return (
         <main>
-            <header><h1>Hello Milesians!</h1></header>
-            <section><DailyCalendar /></section>
+            <header className={styles.mainHeader}>
+                <h1 className={styles.header1}>
+                    {/* Hello Milesians! &nbsp; */}
+                    
+                    <Image src="/mabi-logo.png" width={75} height={75}
+                        alt="Screenshots of the dashboard project showing desktop version"
+                    />
+                    <Clock/>   
+                </h1>
+            </header>
+            <section><WeeklyTodo /></section>
         </main>
     );
 }
