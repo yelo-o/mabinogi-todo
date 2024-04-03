@@ -11,6 +11,7 @@ export const metadata = {
 
 export default async function HomePage() {
     return (
+    <>
         <main>
             <header className={styles.mainHeader}>
                 <h1 className={styles.header1}>
@@ -24,5 +25,6 @@ export default async function HomePage() {
             </header>
             <section><WeeklyTodo /></section>
         </main>
-    );
+        
+    </>);
 }

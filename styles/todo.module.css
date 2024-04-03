@@ -2,6 +2,10 @@
     float: right;
 }
 
+.deleteBtn {
+    color: red;
+}
+
 .todoTableRow > th, .todoTableRow > td{
     text-align: center;
 }
