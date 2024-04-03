@@ -1,5 +1,5 @@
 .addBtn {
-    float: right;
+    float: left;
 }
 
 .deleteBtn {
@@ -8,4 +8,9 @@
 
 .todoTableRow > th, .todoTableRow > td{
     text-align: center;
+}
+
+.todoTableRow > td > input{
+    width: 18px;
+    height: 18px;
 }
