@@ -2,9 +2,8 @@
 import styles from "../styles/todo.module.css";
 import React, { useState, useEffect } from 'react';
 
-export default async function WeeklyTodo() {
+export default function WeeklyTodo() {
     const addtodoClick = () => {
-        // alert('입력해주세용!');
         const todo = prompt('할 일을 입력해주세요 : ');
         if (todo === null || todo === undefined || todo === '') {
             throw new Error('할 일을 입력해주세요');
