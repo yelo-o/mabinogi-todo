@@ -17,10 +17,11 @@ export default async function HomePage() {
             <header className={styles.mainHeader}>
                 <h1 className={styles.header1}>
                     {/* Hello Milesians! &nbsp; */}
-                    
-                    <Image src="/mabi-logo.png" width={75} height={75}
-                        alt="Screenshots of the dashboard project showing desktop version"
-                    />
+                    <Link href={"/"}>
+                        <Image src="/mabi-logo.png" width={75} height={75}
+                            alt="Screenshots of the dashboard project showing desktop version"
+                        />
+                    </Link>
                     <Clock/>   
                 </h1>
             </header>
