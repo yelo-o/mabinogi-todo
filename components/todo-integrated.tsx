@@ -69,12 +69,14 @@ export default function WeeklyTodo() {
 
         if (storedRows) {
             setRows(storedRows);
+        } else {
+            setRows([]);
         }
     }, []);
 
     // 상태가 변경될 때마다 로컬스토리지에 데이터를 저장
     useEffect(() => {
-        LocalStorage.setItem('tableRows', JSON.stringify(rows));
+            LocalStorage.setItem('tableRows', JSON.stringify(rows));
     }, [rows]);
     
     return (
