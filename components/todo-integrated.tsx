@@ -5,9 +5,10 @@ import React, { useState, useEffect } from 'react';
 import LocalStorage from "../app/lib/localstorage";
 
 export default function WeeklyTodo() {
-    const [rows, setRows] = useState([]);
-    // const [ischecked, setIsChecked] = useState(false);
-
+    // const [rows, setRows] = useState([]);
+    const [rows, setRows] = useState(
+        (typeof window !== 'undefined') ? JSON.parse(LocalStorage.getItem('tableRows')) : []
+    )
     const addRow = () => {
         const todo = prompt('할 일을 입력해주세요 : ');
         if (todo === null || todo === undefined || todo === '') {
@@ -35,15 +36,10 @@ export default function WeeklyTodo() {
         }]);
     };
 
-    // const handleCheckboxChange = (e, id) => {
-    //     console.log(e.target.checked);
-    //     console.log(id);
-    // }
     // 체크박스 값 변경 시 호출되는 함수
     const handleCheckboxChange = (e, rowID) => {
         const tagID = e.target.id;
         const { checked } = e.target;
-        console.log(checked);
         setRows(rows.map(row => {
             if (row.id === rowID) {
                 // row.id 와 <input/> 찾아서 검색
@@ -99,9 +95,9 @@ export default function WeeklyTodo() {
                     <th>삭제</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody >
                 {rows.map((row: any) => (
-                    <tr key={ row.id }>
+                    <tr className={styles.todoTableRow} key={ row.id }>
                         <td>{ row.name }</td>
                         <td><input id="chkbox1" type="checkbox" checked={row.checkbox1} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
                         <td><input id="chkbox2" type="checkbox" checked={row.checkbox2} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
@@ -110,7 +106,7 @@ export default function WeeklyTodo() {
                         <td><input id="chkbox5" type="checkbox" checked={row.checkbox5} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
                         <td><input id="chkbox6" type="checkbox" checked={row.checkbox6} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
                         <td><input id="chkbox7" type="checkbox" checked={row.checkbox7} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
-                        <td><button onClick={ deleteRow } >X</button></td>
+                        <td><button className={styles.deleteBtn} onClick={ () => deleteRow(row.id) } >X</button></td>
                     </tr>
                 ))}
             </tbody>
