@@ -1,7 +1,7 @@
 import 'normalize.css'
 import 'concrete.css'
 import styles from "../../styles/home.module.css";
-import LoginForm from '../../components/login-form';
+import SignUpForm from '../../components/signup-form';
 import Clock from "../../components/clock";
 import Image from 'next/image';
 import Link from "next/link";
@@ -24,8 +24,9 @@ export default async function HomePage() {
                     <Clock/>   
                 </h1>
             </header>
-            <section><LoginForm /></section>
-            <section><Link href="/todo">TODO</Link></section>
+            <section><SignUpForm /></section>
+            <section><Link href="/">MAIN</Link></section>
+
         </main>
         
     </>);

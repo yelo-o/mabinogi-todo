@@ -1,3 +1,9 @@
 .loginBtn {
     margin: 20px 0px;
+    float: right;
+}
+
+.signupBtn {
+    margin: 20px 0px;
+    float: left;
 }
