@@ -1,58 +1,64 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import {useRouter} from 'next/navigation';
 import styles from "../styles/login.module.css";
 import LocalStorage from '../app/lib/localstorage';
 
 export default function LoginForm() {
     const [join, setJoin] = useState({
-        nickname: LocalStorage.getItem('join.nickname'),
-        password: LocalStorage.getItem('join.password'),
-        password2: LocalStorage.getItem('join.password2'),
-    }
-        // {
-        // nickname: '',
-        // password: '',
-        // password2: ''
-        // }
-    )
+        name: LocalStorage.getItem('userid'),
+        password: LocalStorage.getItem('userpasswd'),
+        password2: LocalStorage.getItem('userpasswd2'),
+    })
+    const router = useRouter();
 
-    const onChangeLoginHandler = (e) => {
-        const { name, value } = e.target;
-
-
-        console.log(name)
-        console.log(value)
-        // debugger
+    const onChangeSignUpHandler = (e) => {
         const id = e.target.name.value;
-        const pw1 = e.target.password.value;
-        const pw2 = e.target.password2.value;
-        if (pw1 !== pw2) {
+        const pwd1 = e.target.password.value;
+        const pwd2 = e.target.password2.value;
+        if (pwd1 !== pwd2) {
             alert("비밀번호가 서로 다릅니다.")
             return false;
         }
 
         let newObj = {
-            nickname: id,
-            password: pw1,
-            password2: pw2 
+            name: id,
+            password: pwd1,
+            password2: pwd2 
         };
         setJoin(newObj);
+        router.push("/");
       };
 
-    const signupHandler = (e) => {
-        console.log(e.target);
-        console.log(join.nickname);
-      };
+
+    // useEffect(() => {
+    //     const storedUserId = LocalStorage.getItem('userid');
+    //     const storedUserPwd = LocalStorage.getItem('userpasswd');
+    //     const storedUserPwd2 = LocalStorage.getItem('userpasswd2');
+    //     if (storedUserId) {
+    //         let newObj = {
+    //             name: storedUserId,
+    //             password: storedUserPwd,
+    //             password2: storedUserPwd2 
+    //         };
+    //         setJoin(newObj)
+    //     }
+    // }, [])
 
     useEffect(() => {
-        LocalStorage.setItem('join.nickname', join.nickname);
-        LocalStorage.setItem('join.password', join.password);
-        LocalStorage.setItem('join.password2', join.password2);
+        LocalStorage.setItem('userid', join.name);
+        LocalStorage.setItem('userpasswd', join.password);
+        LocalStorage.setItem('userpasswd2', join.password2);
+        // if (LocalStorage.getItem('userid')) {
+        //     alert("이미 id 있어요")
+        //     router.push("/");
+        // }
+        // debugger;
     },[join])
 
     return (<>
-            <form onSubmit={onChangeLoginHandler}>
+            <form onSubmit={onChangeSignUpHandler}>
                 <fieldset>
                     <legend>회원가입</legend>
 
