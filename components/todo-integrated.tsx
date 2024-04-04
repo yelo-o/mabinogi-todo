@@ -96,7 +96,7 @@ export default function WeeklyTodo() {
                 </tr>
             </thead>
             <tbody >
-                {rows.map((row: any) => (
+                {rows && rows.map((row: any) => (
                     <tr className={styles.todoTableRow} key={ row.id }>
                         <td>{ row.name }</td>
                         <td><input id="chkbox1" type="checkbox" checked={row.checkbox1} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
