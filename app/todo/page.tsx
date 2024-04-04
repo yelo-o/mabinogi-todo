@@ -1,9 +1,9 @@
 import 'normalize.css'
 import 'concrete.css'
 import styles from "../../styles/home.module.css";
-import WeeklyTodo from "../../components/weekly-todo";
 import Clock from "../../components/clock";
 import Image from 'next/image';
+import Link from "next/link";
 import TodoIntegrated from "../../components/todo-integrated";
 export const metadata = {
     title:"Home",
@@ -25,6 +25,7 @@ export default async function HomePage() {
                 </h1>
             </header>
             <section><TodoIntegrated /></section>
+            <section><Link href="/">Main</Link></section>
         </main>
         
     </>);
