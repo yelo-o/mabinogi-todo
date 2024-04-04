@@ -21,11 +21,13 @@ export default function WeeklyTodo() {
     // 등록 버튼 클릭
     const onClickAddTodo  = () => {
         // 이전 상태를 가져와서 새로운 row를 추가한 후 설정
-        setRows([...rows, { 
-            id: rows.length + 1, 
-            name: addRow()
+        setRows([...rows, 
+            { 
+                id: rows.length + 1, 
+                name: addRow(),
         }]);
     };
+
 
     const deleteRow = (id: any) => {
         setRows(rows.filter(row => row.id !== id));
@@ -65,22 +67,9 @@ export default function WeeklyTodo() {
             </thead>
             <tbody>
                 {rows.map((row: any) => (
-                    <Todos key={row.id} row={row} deleteRow={deleteRow}/>
+                    <Todos key={ row.id } row={ row } deleteBtn={ deleteRow } 
+                    />
                 ))}
-
-                {/* {rows.map((row: any) => (
-                    <tr key={row.id} className={styles.todoTableRow}>
-                        <td>{row.name}</td>
-                        <td><CheckBox checked={row.checkStatus.monCheck} onChange={() => handleCheckboxChange(row.id, row.checkStatus.monCheck, 0)}/></td>
-                        <td><CheckBox checked={row.checkStatus.tueCheck} onChange={() => handleCheckboxChange(row.id, row.checkStatus.tueCheck, 1)}/></td>
-                        <td><CheckBox checked={row.checkStatus.wedCheck} onChange={() => handleCheckboxChange(row.id, row.checkStatus.wedCheck, 2)}/></td>
-                        <td><CheckBox checked={row.checkStatus.thuCheck} onChange={() => handleCheckboxChange(row.id, row.checkStatus.thuCheck, 3)}/></td>
-                        <td><CheckBox checked={row.checkStatus.friCheck} onChange={() => handleCheckboxChange(row.id, row.checkStatus.friCheck, 4)}/></td>
-                        <td><CheckBox checked={row.checkStatus.satCheck} onChange={() => handleCheckboxChange(row.id, row.checkStatus.satCheck, 5)}/></td>
-                        <td><CheckBox checked={row.checkStatus.sunCheck} onChange={() => handleCheckboxChange(row.id, row.checkStatus.sunCheck, 6)}/></td>
-                        <td><button className={styles.deleteBtn} onClick={() => deleteRow(row.id)}>X</button></td>
-                    </tr>
-                ))} */}
             </tbody>
         </table>
     </>
