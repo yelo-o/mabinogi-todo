@@ -80,7 +80,7 @@ export default function LoginForm() {
                     <label htmlFor="password">비밀번호를 다시 한번 입력해주세요</label>
                     <input type="password" name="password2" id="password2" />
 
-                    <input className={styles.signupBtn} type="submit" value="Save" />
+                    <input className={styles.signupIdSaveBtn} type="submit" value="Save" />
                     <input className={styles.toLoginFormBtn} type="button" value="취소" onClick={toLoginForm}/>
                 </fieldset>
             </form>

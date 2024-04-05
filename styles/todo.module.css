@@ -2,6 +2,12 @@
     float: left;
 }
 
+.addBtn:hover {
+    background-color:#002ead;
+    color:white;
+    transition: 0.7s;
+}
+
 .deleteBtn {
     color: red;
 }
@@ -18,4 +24,10 @@
 .logOutBtn {
     float: left;
     margin-top: 100px;
+}
+
+.logOutBtn:hover {
+    background-color:red;
+    color:white;
+    transition: 0.7s;
 }

@@ -14,5 +14,22 @@
 
 .toLoginFormBtn {
     margin: 20px 0px;
+    float: left;
+}
+
+.toLoginFormBtn:hover, .deleteIDBtn:hover {
+    background-color:red;
+    color:white;
+    transition: 0.7s;
+}
+
+.signupIdSaveBtn {
+    margin: 20px 0px;
     float: right;
+}
+
+.signupIdSaveBtn:hover, .signupBtn:hover, .loginBtn:hover {
+    background-color:#002ead;
+    color:white;
+    transition: 0.7s;
 }
