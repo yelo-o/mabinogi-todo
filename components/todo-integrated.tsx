@@ -58,6 +58,11 @@ export default function WeeklyTodo() {
         }));
     };
 
+    const logOut = () => {
+        LocalStorage.setItem('storedLogin', 'false');
+        alert('로그아웃 되었습니다.')
+        location.href="/";
+    }
 
     const deleteRow = (id: any) => {
         setRows(rows.filter(row => row.id !== id));
@@ -82,6 +87,7 @@ export default function WeeklyTodo() {
     return (
     <>
         <button className={styles.addBtn} onClick={onClickAddTodo}>추가</button>
+        
         
         <table>
             <thead>
@@ -113,6 +119,7 @@ export default function WeeklyTodo() {
                 ))}
             </tbody>
         </table>
+        <button className={styles.logOutBtn} onClick={logOut}>로그아웃</button>
     </>
     )
 }

@@ -5,6 +5,7 @@ import LoginForm from '../../components/login-form';
 import Clock from "../../components/clock";
 import Image from 'next/image';
 import Link from "next/link";
+import React from 'react';
 export const metadata = {
     title:"Home",
 }

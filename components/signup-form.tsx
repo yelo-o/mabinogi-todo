@@ -7,10 +7,12 @@ import LocalStorage from '../app/lib/localstorage';
 
 export default function LoginForm() {
     const [join, setJoin] = useState({
-        name: LocalStorage.getItem('userid'),
-        password: LocalStorage.getItem('userpasswd'),
-        password2: LocalStorage.getItem('userpasswd2'),
+        name: LocalStorage.getItem('userid') || '디폴트',
+        password: LocalStorage.getItem('userpasswd') || '디폴트',
+        password2: LocalStorage.getItem('userpasswd2') || '디폴트',
     })
+    const [isSignUp, setIsSignUp] = useState(false);
+
     const router = useRouter();
 
     const onChangeSignUpHandler = (e) => {
@@ -28,7 +30,10 @@ export default function LoginForm() {
             password2: pwd2 
         };
         setJoin(newObj);
-        router.push("/");
+        setIsSignUp(true);
+        alert("회원가입 성공")
+        LocalStorage.setItem('storedSignUp', 'true');
+        // router.push("/");
       };
 
 
@@ -47,14 +52,15 @@ export default function LoginForm() {
     // }, [])
 
     useEffect(() => {
-        LocalStorage.setItem('userid', join.name);
-        LocalStorage.setItem('userpasswd', join.password);
-        LocalStorage.setItem('userpasswd2', join.password2);
-        // if (LocalStorage.getItem('userid')) {
-        //     alert("이미 id 있어요")
-        //     router.push("/");
-        // }
-        // debugger;
+        console.log("렌더링 후 먼저 실행 됨");
+        LocalStorage.setItem('userid', join.name || '디폴트');
+        LocalStorage.setItem('userpasswd', join.password || '디폴트');
+        LocalStorage.setItem('userpasswd2', join.password2 || '디폴트');
+        const isSignUp = LocalStorage.getItem('storedSignUp') || '디디';
+
+        if (isSignUp === 'true') {
+            router.push("/");
+        }
     },[join])
 
     return (<>

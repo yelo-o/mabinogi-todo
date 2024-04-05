@@ -5,6 +5,7 @@ import Clock from "../../components/clock";
 import Image from 'next/image';
 import Link from "next/link";
 import TodoIntegrated from "../../components/todo-integrated";
+import React from 'react';
 export const metadata = {
     title:"Home",
 }
@@ -26,7 +27,7 @@ export default async function HomePage() {
                 </h1>
             </header>
             <section><TodoIntegrated /></section>
-            <section><Link href="/">Main</Link></section>
+            {/* <section><Link href="/">Main</Link></section> */}
         </main>
         
     </>);

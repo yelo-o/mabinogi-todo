@@ -5,15 +5,18 @@ import {useRouter} from 'next/navigation';
 import styles from "../styles/login.module.css";
 import React, { useState, useEffect } from 'react';
 export default function LoginForm() {
-    const loginBtn = () => {
-        alert("로그인 아직 안됩니다용")
-    }
-    const signup = () => {
-        location.href="/signup"
+    const signUp = () => {
+        const storedSignUp = LocalStorage.getItem("storedSignUp");
+        if (storedSignUp !== 'true') {
+            location.href="/signup";
+        } else {
+            alert('이미 계정이 있습니다.')
+        }
     }
 
     const [iid, setIid] = useState();
     const [ppwd, setPpwd] = useState();
+    const [isLogin, setIsLogin] = useState(false);
 
     const router = useRouter();
 
@@ -21,6 +24,8 @@ export default function LoginForm() {
         LocalStorage.removeItem('userid');
         LocalStorage.removeItem('userpasswd');
         LocalStorage.removeItem('userpasswd2');
+        LocalStorage.removeItem('storedLogin');
+        LocalStorage.removeItem('storedSignUp');
     }
 
     const onChangeLoginHandler = (e) => {
@@ -30,26 +35,24 @@ export default function LoginForm() {
         const savedId = LocalStorage.getItem('userid');
         const savedPwd = LocalStorage.getItem('userpasswd');
         
-        // debugger;
-
         if (savedId === loginId && savedPwd === loginPwd) {
             alert('로그인 성공!')
-            router.push("/todo");
-        } 
+            setIsLogin(true);
+            LocalStorage.setItem('storedLogin', 'true');
+        } else {
+            alert('다시 확인해주세요');
+        }
     }
     
-    // useEffect(() => {
-    //     const savedId = LocalStorage.getItem('join.nickname');
-    //     const savedPwd = LocalStorage.getItem('join.password');
-
-    //     setIid(savedId);
-    //     setPpwd(savedPwd);
-
-    //     // console.log(iid);
-    //     // console.log(ppwd);
-
+    useEffect(() => {
+        // const savedId = LocalStorage.getItem('userid');
+        // const savedPwd = LocalStorage.getItem('userpasswd');
+        const isLogin = LocalStorage.getItem('storedLogin');
+        if (isLogin === 'true') {
+            router.push("/todo");
+        }
         
-    // },[iid, ppwd])
+    },[iid, ppwd])
 
     return (<>
             <form onSubmit={onChangeLoginHandler}>
@@ -65,8 +68,8 @@ export default function LoginForm() {
                     {/* <input className={styles.loginBtn} type="button" value="Login" onClick={loginBtn}/> */}
                     <input className={styles.loginBtn} type="submit" value="Login" />
 
-                    <input className={styles.signupBtn} type="button" value="SIGNUP" onClick={signup}/>
-                    <input className={styles.signupBtn} type="button" value="계정 삭제" onClick={deleteId}/>
+                    <input className={styles.signupBtn} type="button" value="SIGNUP" onClick={signUp}/>
+                    <input className={styles.deleteIDBtn} type="button" value="계정 삭제" onClick={deleteId}/>
                 </fieldset>
             </form>
             </>);

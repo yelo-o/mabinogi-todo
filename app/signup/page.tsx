@@ -5,6 +5,7 @@ import SignUpForm from '../../components/signup-form';
 import Clock from "../../components/clock";
 import Image from 'next/image';
 import Link from "next/link";
+import React from 'react';
 export const metadata = {
     title:"Home",
 }
@@ -26,7 +27,6 @@ export default async function HomePage() {
                 </h1>
             </header>
             <section><SignUpForm /></section>
-            <section><Link href="/">MAIN</Link></section>
 
         </main>
         
