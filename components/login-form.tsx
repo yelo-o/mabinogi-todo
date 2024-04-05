@@ -26,6 +26,7 @@ export default function LoginForm() {
         LocalStorage.removeItem('userpasswd2');
         LocalStorage.removeItem('storedLogin');
         LocalStorage.removeItem('storedSignUp');
+        alert('계정이 삭제되었습니다.')
     }
 
     const onChangeLoginHandler = (e) => {
