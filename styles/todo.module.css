@@ -1,5 +1,6 @@
 .addBtn {
     float: left;
+    margin-bottom: 40px;
 }
 
 .addBtn:hover {
@@ -26,8 +27,13 @@
     margin-top: 100px;
 }
 
-.logOutBtn:hover {
+.logOutBtn:hover, .unCheckAll:hover {
     background-color:red;
     color:white;
     transition: 0.7s;
+}
+
+.unCheckAll {
+    float: right;
+    margin-bottom: 40px;
 }

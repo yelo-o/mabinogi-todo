@@ -68,6 +68,23 @@ export default function WeeklyTodo() {
         setRows(rows.filter(row => row.id !== id));
     };
 
+    const unCheckAll = () => {
+        console.log(rows);
+        setRows(rows.map(row => {
+            return {
+                ...row,
+                checkbox1: false,
+                checkbox2: false,
+                checkbox3: false,
+                checkbox4: false,
+                checkbox5: false,
+                checkbox6: false,
+                checkbox7: false,
+            }
+        })
+        )
+    }
+
     // 컴포넌트가 마운트될 때 로컬스토리지에서 데이터를 가져와 상태로 설정
     useEffect(() => {
         const storedRows = JSON.parse(LocalStorage.getItem('tableRows'));
@@ -87,8 +104,8 @@ export default function WeeklyTodo() {
     return (
     <>
         <button className={styles.addBtn} onClick={onClickAddTodo}>추가</button>
-        
-        
+        <button className={styles.unCheckAll} onClick={unCheckAll}>모든 체크박스 해제</button>
+
         <table>
             <thead>
                 <tr className={styles.todoTableRow}>
