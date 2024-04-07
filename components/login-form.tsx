@@ -1,9 +1,10 @@
 'use client';
 
-import LocalStorage from "../app/lib/localstorage";
+import LocalStorage from "@/app/lib/localstorage";
+import styles from "@/styles/login.module.css";
 import {useRouter} from 'next/navigation';
-import styles from "../styles/login.module.css";
 import React, { useState, useEffect } from 'react';
+
 export default function LoginForm() {
     const signUp = () => {
         const storedSignUp = LocalStorage.getItem("storedSignUp");

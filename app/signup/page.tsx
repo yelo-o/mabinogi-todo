@@ -1,8 +1,8 @@
 import 'normalize.css'
 import 'concrete.css'
-import styles from "../../styles/home.module.css";
-import SignUpForm from '../../components/signup-form';
-import Clock from "../../components/clock";
+import styles from "@/styles/home.module.css";
+import SignUpForm from '@/components/signup-form';
+import Clock from "@/components/clock";
 import Image from 'next/image';
 import Link from "next/link";
 import React from 'react';

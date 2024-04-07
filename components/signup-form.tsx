@@ -1,9 +1,9 @@
 'use client';
 
+import LocalStorage from "@/app/lib/localstorage";
+import styles from "@/styles/login.module.css";
 import React, { useState, useEffect } from 'react';
 import {useRouter} from 'next/navigation';
-import styles from "../styles/login.module.css";
-import LocalStorage from '../app/lib/localstorage';
 
 export default function LoginForm() {
     const [join, setJoin] = useState({

@@ -1,10 +1,10 @@
 import 'normalize.css'
 import 'concrete.css'
-import styles from "../../styles/home.module.css";
-import Clock from "../../components/clock";
+import styles from "@/styles/home.module.css";
+import Clock from "@/components/clock";
+import TodoIntegrated from "@/components/todo-integrated";
 import Image from 'next/image';
 import Link from "next/link";
-import TodoIntegrated from "../../components/todo-integrated";
 import React from 'react';
 export const metadata = {
     title:"Home",

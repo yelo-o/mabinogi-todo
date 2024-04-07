@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "../styles/todo.module.css";
+import styles from "@/styles/todo.module.css";
 import React, { useState, useEffect } from 'react';
 import CheckBox from "./checkbox";
 

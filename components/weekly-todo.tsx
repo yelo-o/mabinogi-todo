@@ -1,8 +1,8 @@
 'use client';
 
-import styles from "../styles/todo.module.css";
+import styles from "@/styles/todo.module.css";
 import React, { useState, useEffect } from 'react';
-import LocalStorage from "../app/lib/localstorage";
+import LocalStorage from "@/app/lib/localstorage";
 import Todos from "./todos";
 
 export default function WeeklyTodo() {
