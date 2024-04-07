@@ -139,12 +139,14 @@ export default function WeeklyTodo() {
                         <td className={styles.tdChk}><input className={styles.inputChk} id="chkbox5" type="checkbox" checked={row.checkbox5} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
                         <td className={styles.tdChk}><input className={styles.inputChk} id="chkbox6" type="checkbox" checked={row.checkbox6} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
                         <td className={styles.tdChk}><input className={styles.inputChk} id="chkbox7" type="checkbox" checked={row.checkbox7} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
-                        <td className={styles.tdChk}><button className={styles.deleteBtn} onClick={ () => deleteRow(row.id) } >X</button></td>
+                        <td><button className={styles.deleteBtn} 
+                            onClick={ () => deleteRow(row.id) } >X</button>
+                        </td>
                     </tr>
                 ))}
             </tbody>
         </table>
-        
+
         <button className={styles.logOutBtn} onClick={logOut}>로그아웃</button>
         <button className={styles.todoCheckOutBtn} onClick={toDailyTodo}>Daily-TODO</button>
     </>

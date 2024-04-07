@@ -48,6 +48,12 @@ export default function DailyTodo() {
         }));
     };
 
+    const logOut = () => {
+        LocalStorage.setItem('storedLogin', 'false');
+        alert('로그아웃 되었습니다.')
+        location.href = "/";
+    }
+    
     const toWeeklyTodo = () => {
         location.href = "/todo/weekly";
     }
@@ -69,10 +75,8 @@ export default function DailyTodo() {
 
     return (
         <>
-        {/* 버튼 */}
         <button className={styles.addBtn} onClick={onClickAddTodo}>추가</button>
 
-        {/* 테이블 */}
         <table>
             <thead>
                 <tr className={styles.todoTableRow}>
@@ -82,7 +86,7 @@ export default function DailyTodo() {
                 </tr>
             </thead>
             <tbody>
-                {todos && todos.map((todo:any) => (
+                {todos.length > 0 && todos.map((todo:any) => (
                     <tr className={styles.todoTableRow} key={ todo.id }>
                         <td>{ todo.name }</td>
                         <td className={styles.tdChk}>
@@ -93,12 +97,12 @@ export default function DailyTodo() {
                             onClick={() => deleteTodo(todo.id)} >X</button>
                         </td>
                     </tr>
-                ))}
+                    ))}
             </tbody>
 
         </table>
 
-        {/* 돌아가기 버튼 */}
+        <button className={styles.logOutBtn} onClick={logOut}>로그아웃</button>
         <button className={styles.todoCheckOutBtn} onClick={toWeeklyTodo}>Weekly-Todo</button>
         </>
     )
