@@ -70,19 +70,22 @@ export default function WeeklyTodo() {
 
     const unCheckAll = () => {
         console.log(rows);
-        setRows(rows.map(row => {
-            return {
-                ...row,
-                checkbox1: false,
-                checkbox2: false,
-                checkbox3: false,
-                checkbox4: false,
-                checkbox5: false,
-                checkbox6: false,
-                checkbox7: false,
-            }
-        })
-        )
+        if (confirm('정말 모든 체크박스를 해제하시겠습니까?')) {
+            setRows(rows.map(row => {
+                return {
+                    ...row,
+                    checkbox1: false,
+                    checkbox2: false,
+                    checkbox3: false,
+                    checkbox4: false,
+                    checkbox5: false,
+                    checkbox6: false,
+                    checkbox7: false,
+                }
+            }))
+        } else {
+            return;
+        }
     }
 
     // 컴포넌트가 마운트될 때 로컬스토리지에서 데이터를 가져와 상태로 설정
