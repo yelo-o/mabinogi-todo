@@ -2,7 +2,7 @@ import 'normalize.css'
 import 'concrete.css'
 import styles from "@/styles/home.module.css";
 import Clock from "@/components/clock";
-import TodoIntegrated from "@/components/todo-integrated";
+import TodoWeekly from "@/components/todo-weekly";
 import Image from 'next/image';
 import Link from "next/link";
 import React from 'react';
@@ -26,7 +26,7 @@ export default async function HomePage() {
                     <Clock/>   
                 </h1>
             </header>
-            <section><TodoIntegrated /></section>
+            <section><TodoWeekly /></section>
             {/* <section><Link href="/">Main</Link></section> */}
         </main>
         

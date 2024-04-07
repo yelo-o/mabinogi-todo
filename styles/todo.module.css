@@ -11,15 +11,25 @@
 
 .deleteBtn {
     color: red;
+    /* margin-bottom: 0px; */
 }
+
 
 .todoTableRow > th, .todoTableRow > td{
     text-align: center;
 }
 
-.todoTableRow > td > input{
-    width: 18px;
-    height: 18px;
+.tdChk {
+    padding-top: 20px;
+}
+
+.inputChk {
+    width: 30px;
+    height: 30px;
+}
+
+.todoTableRow > td > input[type='checkbox']{
+    padding-top: 20px;
 }
 
 .logOutBtn {
@@ -33,6 +43,16 @@
     transition: 0.7s;
 }
 
+.todoCheckOutBtn {
+    float: right;
+    margin-top: 100px;
+}
+
+.todoCheckOutBtn:hover {
+    background-color: aquamarine;
+    color: white;
+    transition: 0.3s
+}
 .unCheckAll {
     float: right;
     margin-bottom: 40px;

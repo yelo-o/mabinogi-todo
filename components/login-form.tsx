@@ -51,7 +51,7 @@ export default function LoginForm() {
         // const savedPwd = LocalStorage.getItem('userpasswd');
         const isLogin = LocalStorage.getItem('storedLogin');
         if (isLogin === 'true') {
-            router.push("/todo");
+            router.push("/todo/weekly");
         }
         
     },[iid, ppwd])

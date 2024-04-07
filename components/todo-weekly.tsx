@@ -12,7 +12,7 @@ export default function WeeklyTodo() {
     const addRow = () => {
         const todo = prompt('할 일을 입력해주세요 : ');
         if (todo === null || todo === undefined || todo === '') {
-            throw new Error('빈값 입력 불가!!');
+            throw new Error('빈값은 입력이 불가능합니다.');
         } else {
             return todo;
         }
@@ -61,8 +61,13 @@ export default function WeeklyTodo() {
     const logOut = () => {
         LocalStorage.setItem('storedLogin', 'false');
         alert('로그아웃 되었습니다.')
-        location.href="/";
+        location.href = "/";
     }
+
+    const toDailyTodo = () => {
+        location.href = "/todo/daily";
+    }
+    
 
     const deleteRow = (id: any) => {
         setRows(rows.filter(row => row.id !== id));
@@ -127,19 +132,21 @@ export default function WeeklyTodo() {
                 {rows && rows.map((row: any) => (
                     <tr className={styles.todoTableRow} key={ row.id }>
                         <td>{ row.name }</td>
-                        <td><input id="chkbox1" type="checkbox" checked={row.checkbox1} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
-                        <td><input id="chkbox2" type="checkbox" checked={row.checkbox2} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
-                        <td><input id="chkbox3" type="checkbox" checked={row.checkbox3} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
-                        <td><input id="chkbox4" type="checkbox" checked={row.checkbox4} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
-                        <td><input id="chkbox5" type="checkbox" checked={row.checkbox5} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
-                        <td><input id="chkbox6" type="checkbox" checked={row.checkbox6} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
-                        <td><input id="chkbox7" type="checkbox" checked={row.checkbox7} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
-                        <td><button className={styles.deleteBtn} onClick={ () => deleteRow(row.id) } >X</button></td>
+                        <td className={styles.tdChk}><input className={styles.inputChk} id="chkbox1" type="checkbox" checked={row.checkbox1} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
+                        <td className={styles.tdChk}><input className={styles.inputChk} id="chkbox2" type="checkbox" checked={row.checkbox2} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
+                        <td className={styles.tdChk}><input className={styles.inputChk} id="chkbox3" type="checkbox" checked={row.checkbox3} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
+                        <td className={styles.tdChk}><input className={styles.inputChk} id="chkbox4" type="checkbox" checked={row.checkbox4} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
+                        <td className={styles.tdChk}><input className={styles.inputChk} id="chkbox5" type="checkbox" checked={row.checkbox5} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
+                        <td className={styles.tdChk}><input className={styles.inputChk} id="chkbox6" type="checkbox" checked={row.checkbox6} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
+                        <td className={styles.tdChk}><input className={styles.inputChk} id="chkbox7" type="checkbox" checked={row.checkbox7} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
+                        <td className={styles.tdChk}><button className={styles.deleteBtn} onClick={ () => deleteRow(row.id) } >X</button></td>
                     </tr>
                 ))}
             </tbody>
         </table>
+        
         <button className={styles.logOutBtn} onClick={logOut}>로그아웃</button>
+        <button className={styles.todoCheckOutBtn} onClick={toDailyTodo}>Daily-TODO</button>
     </>
     )
 }
