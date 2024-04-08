@@ -86,7 +86,7 @@ export default function DailyTodo() {
                 </tr>
             </thead>
             <tbody>
-                {todos.length > 0 && todos.map((todo:any) => (
+                {todos && todos.map((todo:any) => (
                     <tr className={styles.todoTableRow} key={ todo.id }>
                         <td>{ todo.name }</td>
                         <td className={styles.tdChk}>
