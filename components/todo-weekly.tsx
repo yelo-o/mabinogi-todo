@@ -148,7 +148,7 @@ export default function WeeklyTodo() {
         </table>
 
         <button className={styles.logOutBtn} onClick={logOut}>로그아웃</button>
-        <button className={styles.todoCheckOutBtn} onClick={toDailyTodo}>Daily-TODO</button>
+        <button className={styles.todoCheckOutBtn} onClick={toDailyTodo}>Daily-Todo</button>
     </>
     )
 }
