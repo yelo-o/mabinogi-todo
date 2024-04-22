@@ -20,12 +20,15 @@
 }
 
 .tdChk {
-    padding-top: 20px;
+    padding: 9px 8px 8px 8px;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .inputChk {
     width: 30px;
     height: 30px;
+    margin: 0px 0px;
 }
 
 .todoTableRow > td > input[type='checkbox']{
