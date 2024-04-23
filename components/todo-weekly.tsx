@@ -35,6 +35,10 @@ export default function WeeklyTodo() {
                 checkbox7: false,
         }]);
     };
+    const handleRightClick = e => {
+        e.preventDefault();
+        alert('우클릭!');
+    };
 
     // 체크박스 값 변경 시 호출되는 함수
     const handleCheckboxChange = (e, rowID) => {
@@ -137,7 +141,7 @@ export default function WeeklyTodo() {
                         <td className={styles.tdChk}><input className={styles.inputChk} id="chkbox3" type="checkbox" checked={row.checkbox3} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
                         <td className={styles.tdChk}><input className={styles.inputChk} id="chkbox4" type="checkbox" checked={row.checkbox4} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
                         <td className={styles.tdChk}><input className={styles.inputChk} id="chkbox5" type="checkbox" checked={row.checkbox5} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
-                        <td className={styles.tdChk}><input className={styles.inputChk} id="chkbox6" type="checkbox" checked={row.checkbox6} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
+                        <td className={styles.tdChk}><input className={styles.inputChk} id="chkbox6" type="checkbox" checked={row.checkbox6} onChange={(e) => handleCheckboxChange(e, row.id)} onContextMenu={handleRightClick}/></td>
                         <td className={styles.tdChk}><input className={styles.inputChk} id="chkbox7" type="checkbox" checked={row.checkbox7} onChange={(e) => handleCheckboxChange(e, row.id)}/></td>
                         <td><button className={styles.deleteBtn} 
                             onClick={ () => deleteRow(row.id) } >X</button>
