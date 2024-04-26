@@ -30,7 +30,7 @@ export default function DailyTodo() {
         }]);
     };
     const deleteTodo = (id: any) => {
-        setTodos(todos.filter((todo: any) => todo.id != id));
+        confirm("정말 삭제하시겠습니까?") ? setTodos(todos.filter((todo: any) => todo.id != id)) : false
     }
 
     const checkboxChange = (e: any, todoID: any) => {

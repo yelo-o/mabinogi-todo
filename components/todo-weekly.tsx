@@ -74,7 +74,7 @@ export default function WeeklyTodo() {
     
 
     const deleteRow = (id: any) => {
-        setRows(rows.filter(row => row.id !== id));
+        confirm("정말 삭제하시겠습니까?") ? setRows(rows.filter((row: any) => row.id !== id)) : false
     };
 
     const unCheckAll = () => {
