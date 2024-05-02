@@ -78,7 +78,6 @@ export default function WeeklyTodo() {
     };
 
     const unCheckAll = () => {
-        console.log(rows);
         if (confirm('정말 모든 체크박스를 해제하시겠습니까?')) {
             setRows(rows.map(row => {
                 return {

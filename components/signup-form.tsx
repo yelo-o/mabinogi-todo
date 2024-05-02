@@ -52,7 +52,6 @@ export default function LoginForm() {
     // }, [])
 
     useEffect(() => {
-        console.log("렌더링 후 먼저 실행 됨");
         LocalStorage.setItem('userid', join.name || '디폴트');
         LocalStorage.setItem('userpasswd', join.password || '디폴트');
         LocalStorage.setItem('userpasswd2', join.password2 || '디폴트');
