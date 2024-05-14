@@ -131,7 +131,7 @@ export default function WeeklyTodo() {
                     <th>삭제</th>
                 </tr>
             </thead>
-            <tbody >
+            <tbody>
                 {rows && rows.map((row: any) => (
                     <tr className={styles.todoTableRow} key={ row.id }>
                         <td>{ row.name }</td>

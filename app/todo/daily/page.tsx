@@ -6,8 +6,9 @@ import TodoDaily from "@/components/todo-daily";
 import Image from 'next/image';
 import Link from "next/link";
 import React from 'react';
+
 export const metadata = {
-    title:"Home",
+    title:"Daily-Todo",
 }
 
 
