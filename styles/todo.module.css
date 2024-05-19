@@ -37,7 +37,7 @@
 
 .logOutBtn {
     float: left;
-    margin-top: 100px;
+    margin: 100px 0px;
 }
 
 .logOutBtn:hover, .unCheckAll:hover {
@@ -48,7 +48,7 @@
 
 .todoCheckOutBtn {
     float: right;
-    margin-top: 100px;
+    margin: 100px 0px;
 }
 
 .todoCheckOutBtn:hover {
