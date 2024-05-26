@@ -68,9 +68,9 @@ export default function LoginForm() {
                     <input type="password" name="password" id="password" />
 
                     {/* <input className={styles.loginBtn} type="button" value="Login" onClick={loginBtn}/> */}
-                    <input className={styles.loginBtn} type="submit" value="Login" />
+                    <input className={styles.loginBtn} type="submit" value="로그인" />
 
-                    <input className={styles.signupBtn} type="button" value="SIGNUP" onClick={signUp}/>
+                    <input className={styles.signupBtn} type="button" value="회원 가입" onClick={signUp}/>
                     <input className={styles.deleteIDBtn} type="button" value="계정 삭제" onClick={deleteId}/>
                 </fieldset>
             </form>
