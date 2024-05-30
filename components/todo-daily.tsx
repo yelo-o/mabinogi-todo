@@ -5,11 +5,11 @@ import LocalStorage from "@/app/lib/localstorage";
 import React, { useState, useEffect } from 'react';
 
 export default function DailyTodo() {
+    const [nextId, setNextId] = useState(1);
     const [todos, setTodos] = useState(
         (typeof window !== 'undefined') ? JSON.parse(LocalStorage.getItem('todos')) : []
     )
 
-    // todos = [todo1, todo2, todo3, ...]
 
     const addRow = () => {
         const todo = prompt('할 일을 입력해주세요 : ');
@@ -24,10 +24,11 @@ export default function DailyTodo() {
         // 이전 상태를 가져와서 새로운 row를 추가한 후 설정
         setTodos([...todos, 
             { 
-                id: todos.length + 1, 
+                id: nextId,
                 name: addRow(),
                 checkbox: false,
         }]);
+        setNextId(nextId + 1);
     };
     const deleteTodo = (id: any) => {
         confirm("정말 삭제하시겠습니까?") ? setTodos(todos.filter((todo: any) => todo.id != id)) : false

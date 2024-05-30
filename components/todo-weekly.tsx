@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function WeeklyTodo() {
     // const [rows, setRows] = useState([]);
+    const [nextId, setNextId] = useState(1);
     const [rows, setRows] = useState(
         (typeof window !== 'undefined') ? JSON.parse(LocalStorage.getItem('tableRows')) : []
     )
@@ -24,7 +25,7 @@ export default function WeeklyTodo() {
         // 이전 상태를 가져와서 새로운 row를 추가한 후 설정
         setRows([...rows, 
             { 
-                id: rows.length + 1, 
+                id: nextId,
                 name: addRow(),
                 checkbox1: false,
                 checkbox2: false,
@@ -34,6 +35,7 @@ export default function WeeklyTodo() {
                 checkbox6: false,
                 checkbox7: false,
         }]);
+        setNextId(nextId + 1);
     };
     const handleRightClick = e => {
         e.preventDefault();
