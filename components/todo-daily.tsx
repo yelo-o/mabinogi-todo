@@ -5,11 +5,15 @@ import LocalStorage from "@/app/lib/localstorage";
 import React, { useState, useEffect } from 'react';
 
 export default function DailyTodo() {
-    const [nextId, setNextId] = useState(1);
+    // rows에 들어가는 id용
+    const [nextId, setNextId] = useState(() => {
+        const savedNextId = LocalStorage.getItem('nextId');
+        return savedNextId ? parseInt(savedNextId, 10) : 1;
+    });
+
     const [todos, setTodos] = useState(
         (typeof window !== 'undefined') ? JSON.parse(LocalStorage.getItem('todos')) : []
     )
-
 
     const addRow = () => {
         const todo = prompt('할 일을 입력해주세요 : ');
@@ -28,7 +32,12 @@ export default function DailyTodo() {
                 name: addRow(),
                 checkbox: false,
         }]);
-        setNextId(nextId + 1);
+
+        setNextId(nextId => {
+            const newNextId = nextId + 1;
+            LocalStorage.setItem('nextId', JSON.stringify(newNextId));
+            return newNextId;
+        });
     };
     const deleteTodo = (id: any) => {
         confirm("정말 삭제하시겠습니까?") ? setTodos(todos.filter((todo: any) => todo.id != id)) : false
@@ -48,7 +57,7 @@ export default function DailyTodo() {
             return todo;
         }));
     };
-
+    
     const logOut = () => {
         LocalStorage.setItem('storedLogin', 'false');
         alert('로그아웃 되었습니다.')
@@ -107,6 +116,4 @@ export default function DailyTodo() {
         <button className={styles.todoCheckOutBtn} onClick={toWeeklyTodo}>Weekly-Todo</button>
         </>
     )
-
-
 }

@@ -5,8 +5,12 @@ import LocalStorage from "@/app/lib/localstorage";
 import React, { useState, useEffect } from 'react';
 
 export default function WeeklyTodo() {
-    // const [rows, setRows] = useState([]);
-    const [nextId, setNextId] = useState(1);
+    // rows에 들어가는 id용
+    const [nextId, setNextId] = useState(() => {
+        const savedNextId = LocalStorage.getItem('nextId');
+        return savedNextId ? parseInt(savedNextId, 10) : 1;
+    });
+
     const [rows, setRows] = useState(
         (typeof window !== 'undefined') ? JSON.parse(LocalStorage.getItem('tableRows')) : []
     )
@@ -35,7 +39,12 @@ export default function WeeklyTodo() {
                 checkbox6: false,
                 checkbox7: false,
         }]);
-        setNextId(nextId + 1);
+        
+        setNextId(nextId => {
+            const newNextId = nextId + 1;
+            LocalStorage.setItem('nextId', JSON.stringify(newNextId));
+            return newNextId;
+        });
     };
     const handleRightClick = e => {
         e.preventDefault();
